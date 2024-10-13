@@ -1,18 +1,11 @@
 import { Fragment } from "react/jsx-runtime";
 import Desserts from "./components/Desserts";
 import Cart from "./components/Cart";
-import { useEffect, useState } from "react";
-import { cartItem } from "./types";
-import jsonData from "../data.json";
+import { useState } from "react";
+import { productDataType } from "./types";
 
 function App() {
-  const [cartItems, setCartItems] = useState<cartItem[]>([]);
-
-  useEffect(() => {
-    jsonData.map((product) =>
-      setCartItems((prevItems) => [...prevItems, product])
-    );
-  }, []);
+  const [cartItems, setCartItems] = useState<productDataType[]>([]);
 
   return (
     <Fragment>

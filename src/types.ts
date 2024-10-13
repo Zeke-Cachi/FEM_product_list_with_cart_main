@@ -1,4 +1,4 @@
-export type cartItem = {
+export type productDataType = {
   image: {
     thumbnail: string;
     mobile: string;
@@ -8,4 +8,5 @@ export type cartItem = {
   name: string;
   category: string;
   price: number;
+  quantity?: number | undefined;
 };
