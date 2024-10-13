@@ -1,8 +1,24 @@
+import { Fragment } from "react/jsx-runtime";
+import Desserts from "./components/Desserts";
+import Cart from "./components/Cart";
+import { useEffect, useState } from "react";
+import { cartItem } from "./types";
+import jsonData from "../data.json";
+
 function App() {
+  const [cartItems, setCartItems] = useState<cartItem[]>([]);
+
+  useEffect(() => {
+    jsonData.map((product) =>
+      setCartItems((prevItems) => [...prevItems, product])
+    );
+  }, []);
+
   return (
-    <>
-      <h1 className="text-green-600 text-3xl">Hello</h1>
-    </>
+    <Fragment>
+      <Desserts cartItems={cartItems} setCartItems={setCartItems} />
+      <Cart cartItems={cartItems} setCartItems={setCartItems} />
+    </Fragment>
   );
 }
 
