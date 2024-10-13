@@ -19,11 +19,16 @@ const ProductCard: React.FC<{
     } else {
       const updateQuantity = cartItems.map((element) =>
         element.name === product.name
-          ? { ...element, quantity: element.quantity! + 1 }
+          ? { ...element, quantity: (element.quantity || 0) + 1 }
           : { ...element }
       );
       setCartItems(updateQuantity);
     }
+  };
+
+  const selectedQuantity = (): number => {
+    const foundItem = cartItems.find((item) => item.name === product.name);
+    return foundItem ? foundItem.quantity! : 0;
   };
 
   return (
@@ -36,6 +41,11 @@ const ProductCard: React.FC<{
         <img src={addToCartIcon} alt="add to cart icon" />
         Add to Cart
       </button>
+      <div>
+        <button></button>
+        <p>{selectedQuantity()}</p>
+        <button></button>
+      </div>
       <p>{product.category}</p>
       <h4>{product.name}</h4>
       <p>{product.price}</p>
