@@ -10,6 +10,8 @@ const ProductCard: React.FC<{
 }> = ({ product, cartItems, setCartItems }) => {
   const isWideScreen = useIsWideScreen();
 
+  //-----------------------------------------------------------------------------------
+
   const addToCart = (product: productDataType) => {
     const isProductInCart = cartItems.find(
       (element) => element.name === product.name
@@ -26,10 +28,33 @@ const ProductCard: React.FC<{
     }
   };
 
+  const removeFromcart = (product: productDataType) => {
+    const isProductInCart = cartItems.find(
+      (element) => element.name === product.name
+    );
+    if (isProductInCart && isProductInCart!.quantity! === 1) {
+      setCartItems((prevItems) =>
+        prevItems.filter((item) => item.name !== product.name)
+      );
+    } else if (isProductInCart) {
+      setCartItems((prevItems) =>
+        prevItems.map((item) =>
+          item.name === product.name
+            ? { ...item, quantity: item.quantity! - 1 }
+            : { ...item }
+        )
+      );
+    }
+  };
+
+  //-----------------------------------------------------------------------------------
+
   const selectedQuantity = (): number => {
     const foundItem = cartItems.find((item) => item.name === product.name);
     return foundItem ? foundItem.quantity! : 0;
   };
+
+  //-----------------------------------------------------------------------------------
 
   return (
     <div>
@@ -42,9 +67,9 @@ const ProductCard: React.FC<{
         Add to Cart
       </button>
       <div>
-        <button></button>
+        <button onClick={() => removeFromcart(product)}>-</button>
         <p>{selectedQuantity()}</p>
-        <button></button>
+        <button onClick={() => addToCart(product)}>+</button>
       </div>
       <p>{product.category}</p>
       <h4>{product.name}</h4>

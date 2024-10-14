@@ -15,6 +15,8 @@ const Desserts: React.FC<{
     );
   }, []);
 
+  //-----------------------------------------------------------------------------------
+
   return productData.map((prod: productDataType, index: number) => (
     <ProductCard
       key={index}
