@@ -66,16 +66,30 @@ const ProductCard: React.FC<{
           {selectedQuantity() === 0 ? (
             <button
               onClick={() => addToCart(product)}
-              className="absolute h-12 w-2/3 -top-6 inset-x-1/2 -translate-x-1/2 bg-white rounded-full font-semibold flex justify-center items-center gap-2 border-solid border border-project_rose_900"
+              className="absolute h-12 w-2/3 -top-6 inset-x-1/2 -translate-x-1/2 bg-white 
+              rounded-full font-semibold flex justify-center items-center gap-2 border-solid border border-project_rose_900"
             >
               <img src={addToCartIcon} alt="add to cart icon" />
               Add to Cart
             </button>
           ) : (
-            <div className="absolute h-12 border-solid border-2">
-              <button onClick={() => removeFromcart(product)}>-</button>
+            <div
+              className="absolute h-12 w-2/3 -top-6 inset-x-1/2 -translate-x-1/2 bg-project_red rounded-full font-semibold 
+            items-center gap-2 px-6 flex justify-between text-white"
+            >
+              <button
+                className="w-4 h-4 flex items-center justify-center rounded-full border-solid border border-white"
+                onClick={() => removeFromcart(product)}
+              >
+                -
+              </button>
               <p>{selectedQuantity()}</p>
-              <button onClick={() => addToCart(product)}>+</button>
+              <button
+                className="w-4 h-4 flex items-center justify-center rounded-full border-solid border border-white"
+                onClick={() => addToCart(product)}
+              >
+                +
+              </button>
             </div>
           )}
         </>
