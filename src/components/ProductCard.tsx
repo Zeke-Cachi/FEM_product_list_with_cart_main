@@ -55,23 +55,40 @@ const ProductCard: React.FC<{
 
   //-----------------------------------------------------------------------------------
   return (
-    <div>
+    <div className="grid lg:grid-rows-3">
       <img
         src={isWideScreen ? product.image.desktop : product.image.mobile}
         alt="image of the dessert"
+        className="rounded-lg row-span-2"
       />
-      <button onClick={() => addToCart(product)}>
-        <img src={addToCartIcon} alt="add to cart icon" />
-        Add to Cart
-      </button>
-      <div>
-        <button onClick={() => removeFromcart(product)}>-</button>
-        <p>{selectedQuantity()}</p>
-        <button onClick={() => addToCart(product)}>+</button>
+      <div className="relative flex flex-col items-start justify-center">
+        <>
+          {selectedQuantity() === 0 ? (
+            <button
+              onClick={() => addToCart(product)}
+              className="absolute h-12 w-2/3 -top-6 inset-x-1/2 -translate-x-1/2 bg-white border-solid border-2 rounded-full font-semibold flex justify-center items-center gap-2"
+            >
+              <img src={addToCartIcon} alt="add to cart icon" />
+              Add to Cart
+            </button>
+          ) : (
+            <div className="absolute h-12 border-solid border-2">
+              <button onClick={() => removeFromcart(product)}>-</button>
+              <p>{selectedQuantity()}</p>
+              <button onClick={() => addToCart(product)}>+</button>
+            </div>
+          )}
+        </>
+        <p className="font-semibold text-project_rose_500">
+          {product.category}
+        </p>
+        <h4 className="font-semibold text-project_rose_900 text-lg">
+          {product.name}
+        </h4>
+        <p className="font-semibold text-project_red text-xl">
+          ${product.price.toFixed(2)}
+        </p>
       </div>
-      <p>{product.category}</p>
-      <h4>{product.name}</h4>
-      <p>{product.price}</p>
     </div>
   );
 };
