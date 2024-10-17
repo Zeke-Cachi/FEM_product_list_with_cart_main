@@ -66,7 +66,7 @@ const ProductCard: React.FC<{
           {selectedQuantity() === 0 ? (
             <button
               onClick={() => addToCart(product)}
-              className="absolute h-12 w-2/3 -top-6 inset-x-1/2 -translate-x-1/2 bg-white border-solid border-2 rounded-full font-semibold flex justify-center items-center gap-2"
+              className="absolute h-12 w-2/3 -top-6 inset-x-1/2 -translate-x-1/2 bg-white rounded-full font-semibold flex justify-center items-center gap-2 border-solid border border-project_rose_900"
             >
               <img src={addToCartIcon} alt="add to cart icon" />
               Add to Cart
