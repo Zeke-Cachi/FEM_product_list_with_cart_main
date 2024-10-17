@@ -11,7 +11,6 @@ const ProductCard: React.FC<{
   const isWideScreen = useIsWideScreen();
 
   //-----------------------------------------------------------------------------------
-
   const addToCart = (product: productDataType) => {
     const isProductInCart = cartItems.find(
       (element) => element.name === product.name
@@ -28,6 +27,7 @@ const ProductCard: React.FC<{
     }
   };
 
+  //----------------------------------------------------------------------------------
   const removeFromcart = (product: productDataType) => {
     const isProductInCart = cartItems.find(
       (element) => element.name === product.name
@@ -48,14 +48,12 @@ const ProductCard: React.FC<{
   };
 
   //-----------------------------------------------------------------------------------
-
   const selectedQuantity = (): number => {
     const foundItem = cartItems.find((item) => item.name === product.name);
     return foundItem ? foundItem.quantity! : 0;
   };
 
   //-----------------------------------------------------------------------------------
-
   return (
     <div>
       <img

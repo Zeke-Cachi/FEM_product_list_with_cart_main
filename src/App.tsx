@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
 import Desserts from "./components/Desserts";
 import Cart from "./components/Cart";
 import { useState } from "react";
@@ -8,10 +7,10 @@ function App() {
   const [cartItems, setCartItems] = useState<productDataType[]>([]);
 
   return (
-    <Fragment>
+    <main className="font-red_hat">
       <Desserts cartItems={cartItems} setCartItems={setCartItems} />
       <Cart cartItems={cartItems} setCartItems={setCartItems} />
-    </Fragment>
+    </main>
   );
 }
 
