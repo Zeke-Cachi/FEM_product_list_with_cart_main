@@ -59,7 +59,11 @@ const ProductCard: React.FC<{
       <img
         src={isWideScreen ? product.image.desktop : product.image.mobile}
         alt="image of the dessert"
-        className="rounded-lg row-span-2"
+        className={`rounded-lg row-span-2 ${
+          selectedQuantity() > 0
+            ? "border-2 border-solid border-project_red"
+            : ""
+        }`}
       />
       <div className="relative flex flex-col items-start justify-center">
         <>
