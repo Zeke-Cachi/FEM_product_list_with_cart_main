@@ -39,7 +39,11 @@ const Cart: React.FC<{
           ))}
         </div>
       )}
-      <div className="flex justify-between px-2 mt-12 lg:mt-8">
+      <div
+        className={`justify-between px-2 mt-12 lg:mt-8 ${
+          cartItems.length === 0 ? "hidden" : "flex"
+        }`}
+      >
         <p className="text-project_rose_900">Order total</p>
         <h4 className="text-2xl font-bold">
           $
@@ -48,7 +52,11 @@ const Cart: React.FC<{
             .toFixed(2)}
         </h4>
       </div>
-      <div className="flex gap-2 my-8 justify-center text-project_rose_900">
+      <div
+        className={`gap-2 my-8 justify-center text-project_rose_900 ${
+          cartItems.length === 0 ? "hidden" : "flex"
+        }`}
+      >
         <img src={carbonNeutralImg} alt="carbon neutral icon" />
         <p>
           This is a <span className="font-semibold">carbon neutral</span>{" "}
@@ -57,8 +65,10 @@ const Cart: React.FC<{
       </div>
       <button
         onClick={() => checkEmptyCart()}
-        className="h-14 w-full mx-auto bg-project_red 
-              rounded-full font-semibold flex justify-center items-center gap-2 border-solid border-project_rose_900 text-white"
+        className={`h-14 w-full mx-auto bg-project_red 
+              rounded-full font-semibold justify-center items-center gap-2 border-solid border-project_rose_900 text-white ${
+                cartItems.length === 0 ? "hidden" : "flex"
+              }`}
       >
         Confirm order
       </button>
