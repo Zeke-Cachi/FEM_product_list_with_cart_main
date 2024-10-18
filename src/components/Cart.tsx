@@ -17,7 +17,7 @@ const Cart: React.FC<{
 
   return (
     <div>
-      <h2 className="text-2xl font-bold lg:mt-8 text-project_red lg:mb-8">
+      <h2 className="text-2xl font-bold lg:mt-8 text-project_red mb-16 lg:mb-8 ms-4 lg:ms-0">
         Your Cart (
         {cartItems.reduce((counter, item) => counter + (item.quantity || 0), 0)}
         )
@@ -39,7 +39,7 @@ const Cart: React.FC<{
           ))}
         </div>
       )}
-      <div className="flex justify-between px-2 lg:mt-8">
+      <div className="flex justify-between px-2 mt-12 lg:mt-8">
         <p className="text-project_rose_900">Order total</p>
         <h4 className="text-2xl font-bold">
           $

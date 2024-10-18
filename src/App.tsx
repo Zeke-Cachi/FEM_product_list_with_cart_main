@@ -9,7 +9,7 @@ function App() {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   return (
-    <main className="font-red_hat grid lg:grid-cols-4 py-20 px-32 gap-8 relative">
+    <main className="font-red_hat grid lg:grid-cols-4 py-4 px-8 lg:py-20 lg:px-32 gap-16 lg:gap-8 relative">
       <Desserts cartItems={cartItems} setCartItems={setCartItems} />
       <Cart
         cartItems={cartItems}

@@ -15,10 +15,10 @@ const OrderConfirmed: React.FC<{
 
   return (
     <div className="absolute inset-0 before:absolute before:bg-black before:opacity-50 before:h-full before:w-full">
-      <div className="fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/3 p-6 rounded-lg">
+      <div className="fixed bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full lg:w-1/3 p-6 rounded-lg">
         <img src={orderConfirmedImg} alt="green checkmark" />
-        <div className="mb-8 grid gap-2">
-          <h2 className="text-3xl font-bold lg:mt-8 text-project_rose_900">
+        <div className="mb-8 grid gap-2 mt-8 lg:mt-0">
+          <h2 className="text-5xl lg:text-3xl font-bold lg:mt-8 text-project_rose_900">
             Order Confirmed
           </h2>
           <p className="text-project_rose_500">We hope you enjoy your food!</p>
@@ -28,8 +28,8 @@ const OrderConfirmed: React.FC<{
             <OrderConfirmedCard key={index} item={item} />
           ))}
         </div>
-        <div className="flex justify-between px-2 lg:mt-8">
-          <p className="text-project_rose_900 mt-4 mb-16">Order total</p>
+        <div className="flex justify-between px-2 mt-8 mb-16 items-center">
+          <p className="text-project_rose_900">Order total</p>
           <h4 className="text-2xl font-bold">
             $
             {cartItems

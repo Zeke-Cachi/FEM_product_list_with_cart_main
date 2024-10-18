@@ -55,17 +55,17 @@ const ProductCard: React.FC<{
 
   //-----------------------------------------------------------------------------------
   return (
-    <div className="grid lg:grid-rows-3">
+    <div className="grid grid-rows-5 lg:grid-rows-3">
       <img
         src={isWideScreen ? product.image.desktop : product.image.mobile}
         alt="image of the dessert"
-        className={`rounded-lg row-span-2 ${
+        className={`rounded-lg row-span-3 lg:row-span-2 ${
           selectedQuantity() > 0
             ? "border-2 border-solid border-project_red"
             : ""
         }`}
       />
-      <div className="relative flex flex-col items-start justify-center">
+      <div className="relative flex flex-col items-start justify-center row-span-2">
         <>
           {selectedQuantity() === 0 ? (
             <button
