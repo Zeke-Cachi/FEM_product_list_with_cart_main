@@ -7,7 +7,14 @@ import carbonNeutralImg from "../../public/assets/images/icon-carbon-neutral.svg
 const Cart: React.FC<{
   cartItems: productDataType[];
   setCartItems: Dispatch<SetStateAction<productDataType[]>>;
-}> = ({ cartItems, setCartItems }) => {
+  setIsModalVisible: Dispatch<SetStateAction<boolean>>;
+}> = ({ cartItems, setCartItems, setIsModalVisible }) => {
+  const checkEmptyCart = () => {
+    return cartItems.length === 0
+      ? alert("No items added in the cart!")
+      : setIsModalVisible(true);
+  };
+
   return (
     <div>
       <h2 className="text-2xl font-bold lg:mt-8 text-project_red lg:mb-8">
@@ -49,6 +56,7 @@ const Cart: React.FC<{
         </p>
       </div>
       <button
+        onClick={() => checkEmptyCart()}
         className="h-14 w-full mx-auto bg-project_red 
               rounded-full font-semibold flex justify-center items-center gap-2 border-solid border-project_rose_900 text-white"
       >
